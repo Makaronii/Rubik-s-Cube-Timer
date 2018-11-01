@@ -163,8 +163,12 @@ public class Statistics {
         timesList.remove(index);
         lastIndex = timesList.size()-1;
 
-        if(deletedTime == bestTime || deletedTime == worstTime )
-            setSingleTimes();
+        initStatistics();
+    }
+
+    public void initStatistics(){
+        setSingleTimes();
+
         if(timesList.size() >= 5)
             countAllAvgOf(AVG5);
         if(timesList.size() >= 12)
