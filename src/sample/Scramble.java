@@ -33,6 +33,10 @@ public class Scramble {
         return scramble;
     }
 
+    public void setScramble(String scramble){
+        this.scramble = scramble;
+    }
+
     /*
     Method to generate new scramble.
      */
