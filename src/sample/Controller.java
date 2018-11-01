@@ -25,6 +25,7 @@ public class Controller implements Initializable {
     public Boolean preinspectionIsRunning = false, isRunning = false;
     public long time;
     Scramble scramble = new Scramble(30);
+    TimesFile file;
 
     @FXML
     Button plusTwoButton, dnfButton, nextScrambleButton, copyScrambleButton;
@@ -41,7 +42,10 @@ public class Controller implements Initializable {
 
     public void initialize(URL location, ResourceBundle resources){
 
-        resultsTextArea.setText("");
+        file = new TimesFile();
+        stats.initStatistics();
+        timesListView.setItems(timesList);
+
         preinspectionCheckBox.setSelected(false);
 
         //Delete selected Time
