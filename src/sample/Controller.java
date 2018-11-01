@@ -187,8 +187,10 @@ public class Controller implements Initializable {
     }
 
     public void clearTimes(){
-        /*timesList = FXCollections.observableArrayList();
-        timesListView.setItems(timesList);*/
+        for(int i = timesList.size()-1; i >= 0; i--)
+            timesList.remove(i);
+        timesListView.setItems(timesList);
+        resultsTextArea.setText("");
     }
 
 }
