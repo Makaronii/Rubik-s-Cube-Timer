@@ -27,7 +27,7 @@ public class Controller implements Initializable {
     Scramble scramble = new Scramble(30);
 
     @FXML
-    Button plusTwoButton, dnfButton, nextScrambleButton, copyScrambleButton;
+    Button plusTwoButton, dnfButton, nextScrambleButton, copyScrambleButton, clearButton;
     @FXML
     CheckBox preinspectionCheckBox;
     @FXML
@@ -182,5 +182,9 @@ public class Controller implements Initializable {
         stats.refreshStatistics(); //update statistics and resultsTextArea ( Controller reference in Statistics constructor )
     }
 
+    public void clearTimes(){
+        /*timesList = FXCollections.observableArrayList();
+        timesListView.setItems(timesList);*/
+    }
 
 }
