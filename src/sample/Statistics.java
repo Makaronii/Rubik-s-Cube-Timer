@@ -11,8 +11,8 @@ public class Statistics {
     Controller c;
     private ObservableList<Time> timesList;
     public int lastIndex;
-    private Time bestTime, worstTime, currentTime;
-    private AverageOf AVG5 = new AverageOf(5), AVG12 = new AverageOf(12);
+    private Time bestTime, worstTime;
+    private AverageOf AVG5 = new AverageOf(5), AVG12 = new AverageOf(12), AVG100 = new AverageOf(100);
     public static final double DNF_CODE = -111;
 
     public Statistics(Controller c)
@@ -55,17 +55,22 @@ public class Statistics {
             updateAVG(AVG5);
         }
 
+        // Calculation for average of last 12 times
         if(timesList.size() >= 12) {
             updateAVG(AVG12);
+        }
 
+        // Calculation for average of last 100 times
+        if(timesList.size() >= 100) {
+            updateAVG(AVG100);
         }
 
         c.resultsTextArea.setText(getStringValueOfStatistics());
     }
 
     /**
-     *This method updates the average of [@avgOf] times
-     * @param current
+     *This method updates the average of [@current] times
+     * @param current -> type of average [for example(AVG5, AVG12, AVG100)]
      */
     public void updateAVG(AverageOf current){
         int avgSize = current.getAverageSize();
@@ -123,6 +128,9 @@ public class Statistics {
         return avg/(times.length-2);
     }
 
+    /*
+    String and formatted representation of our statistics
+     */
     public String getStringValueOfStatistics(){
         lastIndex = timesList.size()-1;
         String stats = "";
@@ -132,18 +140,24 @@ public class Statistics {
             stats += "\nWorst Time: " + worstTime.toString();
 
         }
-        if(lastIndex >= 4){
+        if(lastIndex >= 5-1){
             stats += "\nCurrent AVG5: " + AVG5;
             stats += "\nBest AVG5: " + AVG5.getBestAVG();
         }
-        if(lastIndex >= 11){
+        if(lastIndex >= 12-1){
             stats += "\nCurrent AVG12: " + AVG12;
             stats += "\nBest AVG12: " + AVG12.getBestAVG();
         }
-
+        if(lastIndex >= 100-1){
+            stats += "\nCurrent AVG12: " + AVG100;
+            stats += "\nBest AVG12: " + AVG100.getBestAVG();
+        }
         return stats;
     }
 
+    /*
+    Method to update the state of our statistics after delete time form timesListView->timesList
+     */
     public void updateAfterTimeDelete(int index){
         Time deletedTime = timesList.get(index);
         timesList.remove(index);
@@ -153,10 +167,18 @@ public class Statistics {
             setSingleTimes();
         if(timesList.size() >= 5)
             countAllAvgOf(AVG5);
+        if(timesList.size() >= 12)
+            countAllAvgOf(AVG12);
+        if(timesList.size() >= 100)
+            countAllAvgOf(AVG100);
 
-        c.resultsTextArea.setText(getStringValueOfStatistics());
+        c.resultsTextArea.setText(getStringValueOfStatistics()); // update our results area
     }
 
+    /*
+    @average - type of counting average
+    Method counting all possible averages of @type
+     */
     public void countAllAvgOf(AverageOf average){
         for(int i = 0; i < timesList.size(); i++){
 
@@ -165,15 +187,20 @@ public class Statistics {
                 for(int j = 0; j < average.getAverageSize(); j++) {
                     average.setCurrentTime(j, timesList.get(i - j));
                 }
-                    // Set current AVG of [avgSize] and checks if it's the best
+                    /*
+                    Calculate current average and checking inside @average class is it the best
+                     */
                     average.setAVG(calculationAVGOf(average.getCurrentTimes()));
-                    System.out.println(average);
-                    if(i == average.getAverageSize()-1)
+
+                    if(i == average.getAverageSize()-1) //Assigns average to the best average
                         average.setBestAVG(average);
                 }
         }
     }
 
+    /*
+    Set best and worst time from all Times
+     */
     public void setSingleTimes(){
         Time best, worst;
 
