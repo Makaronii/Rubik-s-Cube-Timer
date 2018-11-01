@@ -29,7 +29,7 @@ public class CubeTimer extends Application {
         System.out.println(getClass().getResource("fxmlFiles/sample.fxml").toString());
 
         primaryStage.setTitle("Rubik's Cube Timer");
-        primaryStage.setScene(new Scene(root, 800, 450));
+        primaryStage.setScene(new Scene(root, 900, 450));
         primaryStage.show();
 
 
