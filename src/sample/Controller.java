@@ -25,7 +25,7 @@ public class Controller implements Initializable {
     public Boolean preinspectionIsRunning = false, isRunning = false;
     public long time;
     Scramble scramble = new Scramble(30);
-    TimesFile file;
+    static TimesFile file;
 
     @FXML
     Button plusTwoButton, dnfButton, nextScrambleButton, copyScrambleButton, clearButton;

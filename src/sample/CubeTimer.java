@@ -26,13 +26,17 @@ public class CubeTimer extends Application {
 
         this.primaryStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("fxmlFiles/sample.fxml"));
-        System.out.println(getClass().getResource("fxmlFiles/sample.fxml").toString());
 
         primaryStage.setTitle("Rubik's Cube Timer");
         primaryStage.setScene(new Scene(root, 900, 450));
         primaryStage.show();
 
 
+    }
+
+    @Override
+    public void stop() {
+        Controller.file.writeTimes();
     }
 
 
