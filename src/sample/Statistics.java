@@ -149,8 +149,8 @@ public class Statistics {
             stats += "\nBest AVG12: " + AVG12.getBestAVG();
         }
         if(lastIndex >= 100-1){
-            stats += "\nCurrent AVG12: " + AVG100;
-            stats += "\nBest AVG12: " + AVG100.getBestAVG();
+            stats += "\nCurrent AVG100: " + AVG100;
+            stats += "\nBest AVG100: " + AVG100.getBestAVG();
         }
         return stats;
     }
