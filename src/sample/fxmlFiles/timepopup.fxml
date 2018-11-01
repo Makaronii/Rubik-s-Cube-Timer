@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="299.0" prefWidth="474.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TimePopupController">
+   <children>
+      <Button onAction="#applyButtonAction" fx:id="applyButton" layoutX="163.0" layoutY="228.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="99.0" text="Zatwierdź" />
+      <Button onAction="#closeWindow" fx:id="cancelButton" layoutX="332.0" layoutY="228.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="99.0" text="Anuluj" />
+      <Label layoutX="55.0" layoutY="37.0" text="Czas">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="55.0" layoutY="99.0" text="Scramble">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="timeField" editable="true" layoutX="163.0" layoutY="35.0" prefHeight="34.0" prefWidth="117.0" text="" />
+      <TextArea fx:id="scrambleTextArea" layoutX="163.0" layoutY="99.0" prefHeight="77.0" prefWidth="267.0" wrapText="true" />
+      <Button fx:id="plusTwoButton" layoutX="312.0" layoutY="35.0" mnemonicParsing="false" onAction="#setPlusTwo" prefHeight="34.0" prefWidth="49.0" text="+2" />
+      <Button onAction="#setDNF" fx:id="dnfButton" layoutX="381.0" layoutY="35.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="49.0" text="DNF" />
+   </children>
+</Pane>
