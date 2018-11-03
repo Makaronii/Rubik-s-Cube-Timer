@@ -53,10 +53,10 @@ public class Scramble {
             as the previous one or does not belong to the same axis as the penultimate one
              */
             while(i == lastIndex || i % 3 == preLastIndex % 3) {
-                i = random.nextInt(5);
+                i = random.nextInt(6);
             }
 
-            j = random.nextInt(2);
+            j = random.nextInt(3);
             preLastIndex = lastIndex;
             lastIndex = i;
             scramble += notationForScramble[i][j] + " "; //Convert the generated numbers into scramble notation
