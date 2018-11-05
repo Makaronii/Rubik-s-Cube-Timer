@@ -42,7 +42,7 @@ public class TimePopupController implements Initializable {
 
         if(plusTwoButton.isDisable() || dnfButton.isDisable()) {
             Controller.timesList.set(TimePopup.getIndex(), TimePopup.getTime());
-            TimePopup.stats.refreshStatistics();
+            TimePopup.stats.initStatistics();
             closeWindow();
         }
 

@@ -48,7 +48,7 @@ public class TimesFile {
                     t.setDNF();
                 if (isDNS)
                     t.setDNS();
-                
+
                 Controller.timesList.add(t);
             }
 
