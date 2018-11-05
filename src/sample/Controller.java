@@ -51,7 +51,8 @@ public class Controller implements Initializable {
         //Delete selected Time
         timesListView.setOnKeyPressed(e -> {
             if (KeyCode.DELETE == e.getCode() ){
-                stats.updateAfterTimeDelete(timesListView.getSelectionModel().getSelectedIndex());
+                timesList.remove(timesListView.getSelectionModel().getSelectedIndex());
+                stats.initStatistics();
                 timesListView.setItems(timesList);
             }
 
@@ -78,7 +79,7 @@ public class Controller implements Initializable {
             cell.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2 && (! cell.isEmpty()) ) {
                     int index = cell.getIndex();
-                    TimePopup tp = new TimePopup(index, stats);
+                    new TimePopup(index, stats);
                 }
             });
             return cell ;

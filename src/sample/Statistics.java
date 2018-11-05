@@ -156,17 +156,11 @@ public class Statistics {
     }
 
     /*
-    Method to update the state of our statistics after delete time form timesListView->timesList
+    Method to create/update our statistics at start or after delete time form timesListView->timesList
      */
-    public void updateAfterTimeDelete(int index){
-        Time deletedTime = timesList.get(index);
-        timesList.remove(index);
+    public void initStatistics(){
         lastIndex = timesList.size()-1;
 
-        initStatistics();
-    }
-
-    public void initStatistics(){
         setSingleTimes();
 
         if(timesList.size() >= 5)
