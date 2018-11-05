@@ -130,7 +130,6 @@ public class Controller implements Initializable {
     }
 
     private void stopTimer(){
-        System.out.println("Size before: "+timesList.size());
         timer.stopTimer();
         isRunning = false;
         updateTimesList(new Time(timer.getTime(), scramble));
@@ -138,7 +137,6 @@ public class Controller implements Initializable {
         // Reset buttons
         dnfButton.setDisable(false);
         plusTwoButton.setDisable(false);
-        System.out.println("Size after: " +timesList.size());
     }
 
     /**
