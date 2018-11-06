@@ -43,11 +43,8 @@ public class Timer  extends Thread {
 
                 while (isRunning) {
                         updateTime();
-
                         updateMessage(getStringValueOfTime(time));
-                        System.out.println(getStringValueOfTime(time));
                         Thread.sleep(25);
-
                 }
                 return null;
             }
