@@ -185,11 +185,26 @@ public class Controller implements Initializable {
         stats.refreshStatistics(); //update statistics and resultsTextArea ( Controller reference in Statistics constructor )
     }
 
+    /**
+     * This method clear all times with confirm popup window
+     */
     public void clearTimes(){
-        for(int i = timesList.size()-1; i >= 0; i--)
-            timesList.remove(i);
-        timesListView.setItems(timesList);
-        resultsTextArea.setText("");
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Alert!");
+        alert.setHeaderText("Are you sure to delete all times?");
+        alert.setContentText("There will be no return");
+        ButtonType okButton = new ButtonType("Yes", ButtonBar.ButtonData.YES);
+        ButtonType noButton = new ButtonType("No", ButtonBar.ButtonData.NO);
+
+        alert.getButtonTypes().setAll(okButton, noButton);
+        alert.showAndWait().ifPresent(type -> {
+            if (type.getButtonData() == ButtonBar.ButtonData.YES) {
+                for(int i = timesList.size()-1; i >= 0; i--)
+                    timesList.remove(i);
+                timesListView.setItems(timesList);
+                resultsTextArea.setText("");
+            }
+        });
     }
 
 }
