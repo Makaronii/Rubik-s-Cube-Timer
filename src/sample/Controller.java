@@ -189,15 +189,9 @@ public class Controller implements Initializable {
      * This method clear all times with confirm popup window
      */
     public void clearTimes(){
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Alert!");
-        alert.setHeaderText("Are you sure to delete all times?");
-        alert.setContentText("There will be no return");
-        ButtonType okButton = new ButtonType("Yes", ButtonBar.ButtonData.YES);
-        ButtonType noButton = new ButtonType("No", ButtonBar.ButtonData.NO);
-
-        alert.getButtonTypes().setAll(okButton, noButton);
-        alert.showAndWait().ifPresent(type -> {
+        ConfirmBox confirmBox = new ConfirmBox("Alert!", "Are you sure to delete all the times?",
+                "This operation can not be restored");
+        confirmBox.showAndWait().ifPresent(type -> {
             if (type.getButtonData() == ButtonBar.ButtonData.YES) {
                 for(int i = timesList.size()-1; i >= 0; i--)
                     timesList.remove(i);
