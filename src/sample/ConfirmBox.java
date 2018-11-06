@@ -4,6 +4,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 
+/**
+ * Our custom Confirm Box class
+ */
 public class ConfirmBox extends Alert {
 
     ButtonType okButton = new ButtonType("Yes", ButtonBar.ButtonData.YES);
@@ -13,6 +16,7 @@ public class ConfirmBox extends Alert {
         super(Alert.AlertType.CONFIRMATION);
         setContentText(contentText);
         setHeaderText(headerText);
+        setTitle(title);
 
        getButtonTypes().setAll(okButton, noButton);
     }
