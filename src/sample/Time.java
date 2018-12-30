@@ -2,6 +2,9 @@ package sample;
 
 import static java.sql.Types.NULL;
 
+/**
+* This class represends time object
+*/
 public class Time {
 
     private long time;
